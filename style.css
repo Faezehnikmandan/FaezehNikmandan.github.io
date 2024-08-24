@@ -128,7 +128,7 @@ footer .endfooter p{
 @media screen and (max-width:900px) {
     header section .imgandintro{
         display: block;
-        background-image: url('media/faezeh nikmandan3.jpg');
+        background-image: url('faezeh nikmandan3.jpg');
         background-size: cover;
         background-position: top , center; 
     }
