@@ -1,0 +1,183 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-size: 16px;
+    margin: 0px;
+}
+.main-container{
+    width: 100%;
+    max-width: 1800px;
+    margin: 0px auto;
+}
+/*HEADER*/
+header  {
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+header nav{
+    display: flex;
+}
+header nav span{
+    border: 1px solid white;
+    font-size: 1.5em;
+    border-radius: 5px;
+    margin: 5px;
+    flex: 1;
+    text-transform: capitalize;
+    text-align: center;
+}
+header h1{
+    padding: 2px;
+    text-align: center;  
+}
+header section .imgandintro{
+    grid-column-gap: 0px;
+    grid-row-gap: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header img{
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+header section p{
+    padding: 10px;
+    margin: 10px;
+}
+/*HEADER*/
+
+/*MAIN*/
+main{
+    display: flex;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+}
+main .cv{
+    background-color: black;
+    color: white;
+    width: 300px;
+    font-weight: 1.2em;
+    padding-left: 20px;
+    border: 1px solid white;
+}
+main .mywork {
+    display: flex;
+    align-items:self-start;
+    grid-column-gap: 40px;  
+    flex-direction: row;
+    padding: 10px;
+}
+main .mywork a{
+    border: 3px solid grey;
+    width: 300px;
+    height: 450px;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 3px;
+    background-color: black;  
+}
+main .mywork .underimagecard{
+    width: 300px;  
+}
+
+
+
+/*MAIN*/
+/*FOOTER*/
+footer form .intro h2{
+    font-size: 1.5em;
+    font-family: monospace;
+}
+footer form .intro p{
+    background-color: black;
+    color: white;
+}
+footer div form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column-gap: 40px;  
+}
+footer div form [type="text"] , footer div form [type="email"] , footer div form textarea{
+    width: 100%;
+    border-style: none none solid;
+    border-width: 5px;
+    border-color: black;
+    outline: none;
+    grid-column: 2/3;
+}
+footer .form [type="submit"]{
+    border: 2px solid black;
+    width: 100px;
+    border-radius: 10px;
+} 
+footer .endfooter p{
+    height: 30px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+/*FOOTER*/
+
+/*SCREEN*/
+@media screen and (max-width:900px) {
+    header section .imgandintro{
+        display: block;
+        background-image: url('media/faezeh nikmandan3.jpg');
+        background-size: cover;
+        background-position: top , center; 
+    }
+    header img{
+        display: none;
+    }
+    header section p{
+        color: white;
+        background-color: rgb(0, 0, 0, .4);
+        padding: 0px;
+        margin: 0px;
+    }
+    main .cv{
+        font-size: 0.8em;
+        width: 30%;
+    }
+    main .mywork {
+        grid-row-gap: 40px;  
+        flex-direction: column;
+        
+    }
+}
+@media screen and (max-width:770px) {
+    header section .imgandintro{
+        background-position: center ;
+    }
+    
+}
+@media screen and (max-width:600px) {
+    header nav{
+        flex-direction: column;
+    }
+    main{
+        display: block;
+    }
+    main .cv{
+        background-color: black;
+        color: white;
+        width: 100%;
+        padding: 10px;
+    }
+    main .skills{
+        display: flex;
+        justify-content: center;
+        grid-column-gap: 5px;
+        padding: 2px;
+    }
+    footer div form{
+        display: block;
+        padding: 5px;
+    }
+}

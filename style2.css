@@ -1,0 +1,12 @@
+header nav :hover{
+    color: black;
+    background-color: white;
+}
+main .mywork a:hover{
+    box-shadow: 10px 10px 0px grey ;
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    width: 350px;
+    height: 500px;
+}
