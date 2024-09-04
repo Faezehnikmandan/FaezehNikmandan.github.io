@@ -1,54 +1,39 @@
 *{
     box-sizing: border-box;
+    font-family: ui-serif;
 }
 body{
     font-size: 16px;
     margin: 0px;
 }
-.main-container{
-    width: 100%;
-    max-width: 1800px;
-    margin: 0px auto;
+/*header*/
+#media #pic{
+    animation-name: anim;
+    animation-duration: 2s;
 }
-/*HEADER*/
-header  {
-    background-color: black;
-    color: white;
-    padding: 10px;
+#media #paragraph{
+    animation-name: anim1;
+    animation-duration: 2s;
 }
-header nav{
-    display: flex;
+@keyframes anim {
+    0%{ transform: translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }
-header nav span{
-    border: 1px solid white;
-    font-size: 1.5em;
-    border-radius: 5px;
-    margin: 5px;
-    flex: 1;
-    text-transform: capitalize;
-    text-align: center;
+@keyframes anim1 {
+    0%{ transform: translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
 }
-header h1{
-    padding: 2px;
-    text-align: center;  
-}
-header section .imgandintro{
-    grid-column-gap: 0px;
-    grid-row-gap: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-header img{
-    padding: 10px;
-    margin: 10px;
-    box-sizing: border-box;
-}
-header section p{
-    padding: 10px;
-    margin: 10px;
-}
-/*HEADER*/
+/*header*/
 
 /*MAIN*/
 main{
@@ -83,8 +68,20 @@ main .mywork a{
 main .mywork .underimagecard{
     width: 300px;  
 }
-
-
+/*main #card :is(:hover, :focus) {
+    box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    background-color: white;
+    color: black;
+  }*/
+main #card :hover{
+    box-shadow: -8px 5px 5px grey ;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    
+   
+}
 
 /*MAIN*/
 /*FOOTER*/
@@ -115,53 +112,51 @@ footer .form [type="submit"]{
     width: 100px;
     border-radius: 10px;
 } 
-footer .endfooter p{
+i{
+    color: white;
+    size: 20px;
+}
+/*footer .endfooter p{
     height: 30px;
     text-align: center;
     background-color: black;
     color: white;
     padding: 10px;
-}
+}*/
 /*FOOTER*/
+
+
 
 /*SCREEN*/
 @media screen and (max-width:900px) {
-    header section .imgandintro{
-        display: block;
-        background-image: url(faezeh nikmandan3.jpg);
-        background-size: cover;
-        background-position: top , center; 
-    }
-    header img{
+    
+    header #media img{
         display: none;
     }
-    header section p{
+    header #media{
+        background: linear-gradient(rgb(0, 0, 0, .4) , rgb(0, 0, 0, .9)) , url('media/faezeh nikmandan3.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top , center;
+        box-shadow: -5px 7px 25px #999;
+    }
+    header #media #paragraph{
         color: white;
-        background-color: rgb(0, 0, 0, .4);
-        padding: 0px;
-        margin: 0px;
-    }
-    main .cv{
-        font-size: 0.8em;
-        width: 30%;
-    }
-    main .mywork {
-        grid-row-gap: 40px;  
-        flex-direction: column;
         
     }
+   
 }
 @media screen and (max-width:770px) {
-    header section .imgandintro{
+    /*header section .imgandintro{
         background-position: center ;
-    }
+    }*/
     
 }
 @media screen and (max-width:600px) {
-    header nav{
+   /* header nav{
         flex-direction: column;
     }
-    main{
+    #cv-cards{
         display: block;
     }
     main .cv{
@@ -179,5 +174,5 @@ footer .endfooter p{
     footer div form{
         display: block;
         padding: 5px;
-    }
+    }*/
 }
