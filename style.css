@@ -134,7 +134,7 @@ i{
         display: none;
     }
     header #media{
-        background: linear-gradient(rgb(0, 0, 0, .4) , rgb(0, 0, 0, .9)) , url('media/faezeh nikmandan3.jpg');
+        background: linear-gradient(rgb(0, 0, 0, .4) , rgb(0, 0, 0, .9)) , url('./faezeh nikmandan3.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: top , center;
