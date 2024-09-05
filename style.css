@@ -41,33 +41,7 @@ main{
     grid-column-gap: 30px;
     grid-row-gap: 30px;
 }
-main .cv{
-    background-color: black;
-    color: white;
-    width: 300px;
-    font-weight: 1.2em;
-    padding-left: 20px;
-    border: 1px solid white;
-}
-main .mywork {
-    display: flex;
-    align-items:self-start;
-    grid-column-gap: 40px;  
-    flex-direction: row;
-    padding: 10px;
-}
-main .mywork a{
-    border: 3px solid grey;
-    width: 300px;
-    height: 450px;
-    color: white;
-    text-decoration: none;
-    letter-spacing: 3px;
-    background-color: black;  
-}
-main .mywork .underimagecard{
-    width: 300px;  
-}
+
 /*main #card :is(:hover, :focus) {
     box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.2);
     transform: translateY(-8px);
@@ -79,27 +53,27 @@ main #card :hover{
     background-color: white;
     color: black;
     border: 2px solid black;
-    
-   
 }
 
 /*MAIN*/
 /*FOOTER*/
+footer .formbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column-gap: 40px;
+    padding: 10px; 
+    margin: 5px; 
+}
 footer form .intro h2{
     font-size: 1.5em;
     font-family: monospace;
 }
-footer form .intro p{
+footer .intro p{
     background-color: black;
     color: white;
 }
-footer div form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-column-gap: 40px;  
-}
-footer div form [type="text"] , footer div form [type="email"] , footer div form textarea{
+footer .formbar form [type="text"] , .formbar form [type="email"] , .formbar form textarea{
     width: 100%;
     border-style: none none solid;
     border-width: 5px;
@@ -107,6 +81,7 @@ footer div form [type="text"] , footer div form [type="email"] , footer div form
     outline: none;
     grid-column: 2/3;
 }
+
 footer .form [type="submit"]{
     border: 2px solid black;
     width: 100px;
@@ -134,7 +109,7 @@ i{
         display: none;
     }
     header #media{
-        background: linear-gradient(rgb(0, 0, 0, .4) , rgb(0, 0, 0, .9)) , url('faezeh nikmandan3.jpg');
+        background: linear-gradient(rgb(0, 0, 0, .4) , rgb(0, 0, 0, .9)) , url('media/faezeh nikmandan3.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: top , center;
@@ -144,8 +119,12 @@ i{
         color: white;
         
     }
+    footer .formbar{
+        display: block;
+    }
    
 }
+
 @media screen and (max-width:770px) {
     /*header section .imgandintro{
         background-position: center ;
