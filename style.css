@@ -1,0 +1,185 @@
+*{
+    box-sizing: border-box;
+    font-family: ui-serif;
+}
+body{
+    font-size: 16px;
+    margin: 0px;
+}
+/*header*/
+#media #pic{
+    animation-name: anim;
+    animation-duration: 2s;
+}
+#media #paragraph{
+    animation-name: anim1;
+    animation-duration: 2s;
+}
+@keyframes anim {
+    0%{ transform: translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes anim1 {
+    0%{ transform: translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+/*header*/
+
+/*MAIN*/
+main{
+    display: flex;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+}
+
+/*main #card :is(:hover, :focus) {
+    box-shadow: 0px 8px 10px 1px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px);
+    background-color: white;
+    color: black;
+  }*/
+main #card :hover{
+    box-shadow: -8px 5px 5px grey ;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}
+.accordion-item {
+    --bs-accordion-color: white;
+    --bs-accordion-bg: rgb(45, 45, 45);
+    --bs-accordion-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+    --bs-accordion-border-color: rgb(41, 41, 41);
+    --bs-accordion-border-width: black;
+    --bs-accordion-border-radius: var(--bs-border-radius);
+    --bs-accordion-inner-border-radius: calc(var(--bs-border-radius) -(var(--bs-border-width)));
+    --bs-accordion-btn-padding-x: 1.25rem;
+    --bs-accordion-btn-padding-y: 1.2em;
+    --bs-accordion-btn-color: white;
+    --bs-accordion-btn-bg: black;
+    --bs-accordion-btn-icon: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23212529' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e);
+    --bs-accordion-btn-icon-width: 1.25rem;
+    --bs-accordion-btn-icon-transform: rotate(-180deg);
+    --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
+    --bs-accordion-btn-active-icon: url(data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23052c65' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e);
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.544);
+    --bs-accordion-body-padding-x: 1.25rem;
+    --bs-accordion-body-padding-y: 1rem;
+    --bs-accordion-active-color: white;
+    --bs-accordion-active-bg: rgb(59, 59, 59);
+}
+
+
+/*MAIN*/
+/*FOOTER*/
+footer .formbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column-gap: 40px;
+    padding: 10px; 
+    margin: 5px; 
+}
+footer form .intro h2{
+    font-size: 1.5em;
+    font-family: monospace;
+}
+footer .intro p{
+    background-color: black;
+    color: white;
+}
+footer .formbar form [type="text"] , .formbar form [type="email"] , .formbar form textarea{
+    width: 100%;
+    border-style: none none solid;
+    border-width: 5px;
+    border-color: black;
+    outline: none;
+    grid-column: 2/3;
+}
+
+footer .form [type="submit"]{
+    border: 2px solid black;
+    width: 100px;
+    border-radius: 10px;
+} 
+i{
+    color: white;
+    size: 20px;
+}
+/*.endfooter i:hover {
+    transform: scale(1.1);
+}*/
+/*footer .endfooter p{
+    height: 30px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}*/
+
+/*FOOTER*/
+
+
+
+/*SCREEN*/
+@media screen and (max-width:900px) {
+    
+    header #media img{
+        display: none;
+    }
+    header #media{
+        background: linear-gradient(rgb(0, 0, 0, .4) , rgb(0, 0, 0, .9)) , url('media/faezeh nikmandan3.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top , center;
+        box-shadow: -5px 7px 25px #999;
+    }
+    header #media #paragraph{
+        color: white;
+        
+    }
+    footer .formbar{
+        display: block;
+    }
+   
+}
+
+@media screen and (max-width:770px) {
+    /*header section .imgandintro{
+        background-position: center ;
+    }*/
+    
+}
+@media screen and (max-width:600px) {
+   /* header nav{
+        flex-direction: column;
+    }
+    #cv-cards{
+        display: block;
+    }
+    main .cv{
+        background-color: black;
+        color: white;
+        width: 100%;
+        padding: 10px;
+    }
+    main .skills{
+        display: flex;
+        justify-content: center;
+        grid-column-gap: 5px;
+        padding: 2px;
+    }
+    footer div form{
+        display: block;
+        padding: 5px;
+    }*/
+}
