@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 870.97 288.13">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #6d6e71;
+        font-family: FreestyleScript-Regular, 'Freestyle Script';
+        font-size: 122.06px;
+        stroke-width: .25px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        font-family: Mistral, Mistral;
+        font-size: 183.09px;
+      }
+
+      .cls-2 {
+        font-family: EdwardianScriptITC, 'Edwardian Script ITC';
+        font-size: 206.38px;
+        stroke-width: 2px;
+      }
+
+      .cls-4 {
+        fill: #231f20;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" transform="translate(300.56 248.08)"><tspan x="0" y="0">Faezeh</tspan></text>
+  <text class="cls-4" transform="translate(1 170.23)"><tspan class="cls-2" x="0" y="0">N</tspan><tspan class="cls-3" x="179.78" y="0">ikmandan</tspan></text>
+</svg>
