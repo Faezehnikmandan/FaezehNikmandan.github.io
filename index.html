@@ -280,25 +280,7 @@
             </footer>
             
 
-        <!-- server of form -->    
-            <script>
-                function validateForm() {
-                    const name = document.getElementById("name").value;
-                    const surname = document.getElementById("surname").value;
-                    const email = document.getElementById("email").value;
-                    
-                    if (name == "" || surname == "" || email == "") {
-                        alert("Name , Surname and email must be filled out");
-                        return false; // Prevents form submission
-                    }
-                    return true; // Form will be submitted
-                }
-                </script>
-                <form action="/submit-form" method="post" onsubmit="return validateForm()">
-
-                    
-                <form action="/submit-form" method="POST">
-        <!-- end of server of form -->
+       
 
 
         <script src="./scripts-min/jquery-3.7.1.slim.js"></script>
