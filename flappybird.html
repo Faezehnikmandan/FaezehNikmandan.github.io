@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flappy Bird</title>
+    <style>
+        body {
+            text-align: center;
+            
+        }
+        canvas {
+            border: 2px solid black;
+            background: #70c5ce;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="mycanvas" width="420" height="580"></canvas>
+
+
+    <script>
+        var cvs = document.getElementById("mycanvas");
+var ctx = cvs.getContext("2d");
+let frame = 0;
+
+//load pictures
+let birdFrame = [new Image(), new Image(), new Image()];
+birdFrame[0].src = "./media/flappybird/b0.png";
+birdFrame[1].src = "./media/flappybird/b1.png";
+birdFrame[2].src = "./media/flappybird/b2.png";
+
+let background = new Image();
+background.src = "./media/flappybird/BG.png";
+
+let ground = new Image();
+ground.src = "./media/flappybird/ground.png";
+
+let pipeTop = new Image();
+pipeTop.src = "./media/flappybird/toppipe.png";
+
+let pipeBottom = new Image();
+pipeBottom.src = "./media/flappybird/botpipe.png";
+
+let gameOver = new Image();
+gameOver.src = "./media/flappybird/go.png";
+
+let getReady = new Image();
+getReady.src = "./media/flappybird/getready.png";
+
+//control
+let state = {
+  current: 0,
+  getReady: 0,
+  game: 1,
+  gameOver: 2,
+};
+
+function clickHandler() {
+  switch(state.current){
+    case state.getReady:
+      state.current = state.game;
+      break;
+    case state.game:
+      bird.flap()
+      
+      break;
+    default:
+      pipe.position=[]
+      bird.velocity=0
+      state.current = state.getReady;
+      break;
+  }
+}
+
+function keyboardClickHandler(e) {
+  if (e.which == 32) clickHandler();
+}
+
+document.addEventListener("click", clickHandler);
+document.addEventListener("keydown", keyboardClickHandler);
+
+//create objects
+var bg = {
+  draw: function () {
+    ctx.drawImage(background, 0, cvs.height - 430, cvs.width, cvs.height - 200);
+  },
+};
+
+let fg = {
+  x: 0,
+  dx: 2,
+  draw: function () {
+    ctx.drawImage(ground, this.x, cvs.height - 100, cvs.width, 100);
+    ctx.drawImage(ground, this.x, cvs.height - 100, cvs.width + 500, 100);
+  },
+  update: function () {
+    if(state.current === state.game){
+     this.x = (this.x - this.dx) % (cvs.width/2);
+    }
+  },
+};
+
+let pipe = {
+  dx: 2,
+  position: [],
+  width: 50,   // Width of pipes
+  height: 300, // Height of top pipe
+  gap: 100,    // Gap between top and bottom pipes
+  update: function () {
+    if(state.current !== state.game)return;
+    if (frame % 100 === 0) {
+      this.position.push({ x: cvs.width, y: Math.random() * -150 });
+    }
+    for (let i = 0; i < this.position.length; i++) {
+        let p = this.position[i];
+        p.x -= this.dx;
+    }
+    for (let i = 0; i < this.position.length; i++) {
+      if(this.position[i].x + this.width <= 0){
+      this.position.shift();
+      }
+    }
+    
+
+    // Check for collisions
+    for (let i = 0; i < this.position.length; i++) {
+      let p = this.position[i];
+    
+      // **Bird's Bounding Box**
+      let birdRight = bird.x + 34; // Bird's width ≈ 34px
+      let birdLeft = bird.x;
+      let birdTop = bird.y;
+      let birdBottom = bird.y + 24; // Bird's height ≈ 24px
+    
+      // **Pipe's Bounding Box**
+      let pipeLeft = p.x;
+      let pipeRight = p.x + this.width;
+      let pipeTopBottom = p.y + this.height; // Bottom of top pipe
+      let pipeBottomTop = p.y + this.height + this.gap; // Top of bottom pipe
+    
+      // **Check Collision with Top Pipe**
+      if (
+        birdRight > pipeLeft && 
+        birdLeft < pipeRight && 
+        birdTop < pipeTopBottom
+      ) {
+        state.current = state.gameOver; // Game over if bird hits top pipe
+      }
+    
+      // **Check Collision with Bottom Pipe**
+      if (
+        birdRight > pipeLeft && 
+        birdLeft < pipeRight && 
+        birdBottom > pipeBottomTop
+      ) {
+        state.current = state.gameOver; // Game over if bird hits bottom pipe
+      }
+    }},
+
+  draw: function () {
+    for (let i = 0; i < this.position.length; i++) {
+      let p = this.position[i];
+      ctx.drawImage(pipeTop, p.x, p.y, 50, 300);
+      ctx.drawImage(pipeBottom, p.x, p.y + 400, 50, 300);
+    }
+  },
+};
+
+let bird = {
+  x: 50,
+  y: 100,
+  gravity: 0.3,
+  velocity: 0,
+  animationIndex: 0,
+  draw: function () {
+    // If the game is over, keep the bird at the first frame
+    let frameToDraw = state.current === state.gameOver ? 0 : this.animationIndex;
+    ctx.drawImage(birdFrame[frameToDraw], this.x, this.y);
+  },
+  
+  update: function () {
+    let wingSpeed =state.current == state.getReady? 10:5;
+    this.animationIndex = frame % wingSpeed === 0 
+  ? (this.animationIndex + 1) % birdFrame.length 
+  : this.animationIndex;
+   //index =index+1 % list.length
+    if(state.current===state.getReady){
+      this.y=100
+    }else if(state.current===state.game){
+      this.velocity = this.velocity + this.gravity; //this.velocity+=this.gravity =>velocity(first frame)=0+0.5=0.5 , velocity(second frame)=0.5+0.5=1 ,velocity(third frame)=1+.5=1.5,...
+      this.y = this.y + this.velocity; //this.y+=this.velocity =>y(first frame)=100+0.5=100.5 ,y(second frame)=100+1.0=101 ,y(third frame)=101+1.5=102.5,...
+      
+    }
+    if (this.y >= cvs.height - 120) { 
+      this.y=cvs.height - 120;
+      state.current = state.gameOver;
+    }
+    
+  },
+  flap: function(){// Apply the flap: Set velocity to negative value to move upward
+    this.velocity = -4;}
+
+};
+
+let getready = {
+  draw: function () {
+    if (state.current === state.getReady) {  
+      ctx.drawImage(getReady, 100, cvs.height - 430, cvs.width - 200, cvs.height - 400);
+    }
+  }
+};
+
+let gameend = {
+  draw: function () {
+    if (state.current === state.gameOver) {  
+      ctx.drawImage(gameOver, 100, cvs.height - 430, cvs.width - 200, cvs.height - 400);
+    }
+  }
+};
+
+
+//core part of the codes
+function update() {
+  fg.update();
+  pipe.update();
+  bird.update();
+}
+
+function draw() {
+  ctx.clearRect(0, 0, cvs.width, cvs.height);
+  bg.draw();
+  pipe.draw();
+  fg.draw();
+  bird.draw();
+  gameend.draw();
+  getready.draw();
+}
+
+function animate() {
+  update();
+  draw();
+  frame++;
+  requestAnimationFrame(animate);
+}
+
+animate();
+
+    </script>
+
+</body>
+</html>
