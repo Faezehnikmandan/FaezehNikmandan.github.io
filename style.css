@@ -94,8 +94,7 @@ footer form .intro h2{
     font-family: monospace;
 }
 footer .intro p{
-    background-color: black;
-    color: white;
+        color: rgb(0, 0, 0);
 }
 footer .formbar form [type="text"] , .formbar form [type="email"] , .formbar form textarea{
     width: 100%;
