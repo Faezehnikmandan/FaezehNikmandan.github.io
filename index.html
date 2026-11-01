@@ -1,194 +1,235 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="./style.css">
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="./media/Untitled-1.svg">
-    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Faezeh Nikmandan: architect specialising in sustainable design, BIM and visual content.">
+    <!-- Bootstrap first, so style.css can override it -->
     <link rel="stylesheet" href="./scripts-min/bootstrap.min.css">
-    <!-- FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/svg+xml" href="./media/Untitled-1.svg">
     <script src="https://kit.fontawesome.com/d9f7feb690.js" crossorigin="anonymous"></script>
-    <title>Faezeh Nikmandan</title>
+    <title>Faezeh Nikmandan | Architect</title>
 </head>
 <body>
-<div class="main-container">
-    <header>
-        <!-- Navbar content -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand fs-3 fw-bold" href="#">Home</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link fs-5" target="_blank" aria-current="page" href="/media/CV.pdf">CV</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fs-5" target="_blank" aria-current="page" href="/media/Faezeh Nikmandan-Portfolio.pdf">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fs-5" href="#form">Get in Touch</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-light" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <!-- end of Navbar content -->
+<div class="progress-bar-top" id="progress"></div>
 
-        <!-- Media Obj -->
-        <div class="d-flex align-items-center bg-black text-white" id="media">
-            <div class="flex-shrink-0 m-3" id="pic">
-                <img src="media/faezeh nikmandan4.jpg" alt="Faezeh Nikmandan" class="rounded" style="width: 200px;">
-            </div>
-            <div class="flex-grow-1 ms-3" id="paragraph">
-                <h3 class="mb-3">Welcome to my webpage!</h3>
-                <p style="font-family: cursive; padding-right: 5px;">
-                    Hi, I'm Faezeh Nikmandan, a passionate architect specializing in sustainable design. With a Master's degree in Architecture for Sustainability from Politecnico di Torino, I've cultivated a deep commitment to creating spaces that harmonize with the environment. Beyond formal education, my curiosity and drive have led me to independently learn digital tools like HTML, CSS, and JavaScript, which I used to build this website from scratch.
-                    <br>
-                    My journey goes beyond architecture—I'm constantly expanding my skill set, from mastering advanced design software to diving into interior design and digital technologies like Dynamo in Revit for LEED compliance. This portfolio reflects my dedication to innovation, sustainability, and continuous learning. I believe in breaking boundaries and embracing versatility in everything I do.
-                </p>
+<header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#top">FN</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#cv">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#work">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" target="_blank" rel="noopener" href="/media/CV.pdf">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" target="_blank" rel="noopener" href="/media/Faezeh Nikmandan-Portfolio.pdf">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link nav-cta" href="#form">Get in touch</a></li>
+                </ul>
             </div>
         </div>
-        <!-- end of Media Obj -->
-    </header>
+    </nav>
+</header>
 
-    <main>
-        <div class="container-fluid">
-            <div class="row" style="column-gap: 0; --bs-gap:0">
-                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 bg-black" id="cv">
-                    <!--Accordion-->
+<main id="top">
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="spotlight" aria-hidden="true"></div>
+        <div class="hero-inner">
+            <h1 class="hero-name" id="heroName" aria-label="Faezeh Nikmandan">Faezeh<br>Nikmandan</h1>
+            <p class="hero-role">Architect. Sustainable design, BIM, visual content.</p>
+            <div class="hero-actions">
+                <a href="#work" class="btn-bw">See projects</a>
+                <a href="#form" class="btn-bw btn-bw-ghost">Contact</a>
+            </div>
+        </div>
+        <img src="media/faezeh nikmandan4.jpg" alt="Portrait of Faezeh Nikmandan" class="hero-pic">
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>Sustainable design</span><span>Revit</span><span>Dynamo</span><span>LEED</span><span>Enscape</span><span>Unreal Engine</span><span>Adobe</span>
+            <span>Sustainable design</span><span>Revit</span><span>Dynamo</span><span>LEED</span><span>Enscape</span><span>Unreal Engine</span><span>Adobe</span>
+        </div>
+    </div>
+
+    <!-- About -->
+    <section class="about reveal">
+        <p>
+            I'm an architect with a Master's in Architecture for Sustainability from Politecnico di Torino. I design spaces that sit well in their environment, and I taught myself HTML, CSS and JavaScript to build this site from scratch.
+        </p>
+        <p>
+            I keep widening my toolkit: advanced design software, interior design, and Dynamo in Revit for LEED compliance.
+        </p>
+    </section>
+
+    <div class="container-fluid px-0">
+        <div class="row g-0">
+            <!-- CV -->
+            <div class="col-lg-4" id="cv">
+                <div class="cv-sticky">
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Education
-                                </button>
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Education</button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <strong>Master of Sciences in Architecture for sustainability 2021-2024:</strong> Politecnico di Torino, Italy
+                                    <strong>MSc Architecture for Sustainability</strong><br>2021-2024, Politecnico di Torino, Italy
                                     <hr>
-                                    <strong>Bachelor in Architecture Engineering 2015-2019:</strong> Seraj University, Tabriz, Iran
+                                    <strong>BSc Architecture Engineering</strong><br>2015-2019, Seraj University, Tabriz, Iran
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Work Experiences
-                                </button>
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Work experience</button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <strong>Tangram studio (Alice e Giorgio Giani architetti)</strong> Turin, Italy, On-site, Part-time <br> Junior Architect: Nov 2024 - Sep 2025 <hr>
-                                    <strong>GAS Architettura</strong> Turin, Italy, On-site, Part-time <br> Junior Architect: Aug 2023 - Mar 2024 <br> Curriculum Internship: Jun 2023 - Aug 2023 <hr>
-                                    <strong>XForex</strong> Tabriz, Iran, On-site, Full-time <br> Motion Graphic Designer: Jan 2020 - Sep 2021 <hr>
-                                    <strong>Scale Carpentry</strong> Tabriz, Iran, Hybrid, Full-time <br> Interior Designer: 2020 - 2021 <hr>
-                                    <strong>Baharan Institution</strong> Tabriz, Iran, On-site, Part-time <br> English Teacher: Apr 2017 - Sep 2017
+                                    <strong>Tangram studio (Alice e Giorgio Giani architetti)</strong><br>Turin, part-time<br>Junior Architect, Nov 2024 - Sep 2025
+                                    <hr>
+                                    <strong>GAS Architettura</strong><br>Turin, part-time<br>Junior Architect, Aug 2023 - Mar 2024<br>Curriculum Internship, Jun 2023 - Aug 2023
+                                    <hr>
+                                    <strong>XForex</strong><br>Tabriz, full-time<br>Motion Graphic Designer, Jan 2020 - Sep 2021
+                                    <hr>
+                                    <strong>Scale Carpentry</strong><br>Tabriz, hybrid, full-time<br>Interior Designer, 2020 - 2021
+                                    <hr>
+                                    <strong>Baharan Institution</strong><br>Tabriz, part-time<br>English Teacher, Apr 2017 - Sep 2017
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Skills
-                                </button>
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Skills</button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <div class="skills d-flex flex-wrap justify-content-start">
-                                        <div class="language border-top m-1"><strong>Language</strong><hr> English: Advanced <br> Italian: Elementary <br> Persian: Native <br> Turkish: Advanced <br> Azerbaijan: Native</div>
-                                        <div class="Adobe border-top m-1"><strong>Adobe</strong><hr> Photoshop: 9/10 <br> InDesign: 9/10 <br> Illustrator: 9/10</div>
-                                        <div class="Microsoft border-top m-1"><strong>Microsoft Office</strong><hr> Excel: 7/10 <br> PowerPoint: 9/10 <br> Word: 9/10</div>
-                                        <div class="programming border-top m-1"><strong>Programming Language</strong><hr> Python: 3/10 <br> HTML: 6/10 <br> CSS: 6/10 <br> JavaScript: 3/10</div>
-                                        <div class="software border-top m-1"><strong>Software Proficiency</strong><hr> Revit: 8/10 <br> Dynamo: 8/10 <br> Rhino: 5/10 <br> Grasshopper: 6/10 <br> 3D Max: 8/10 <br> Edificius: 5/10 <br> AutoCad: 9/10 <br> QGis: 7/10 <br> Camtasia: 9/10 <br> Rendering: Lumion: 5/10 <br> V-Ray: 7/10 <br> Enscape: 8/10 <br> Unreal Engine: 6/10 <br> Unity: 5/10</div>
+                                    <div class="skill-group"><strong>Languages</strong>
+                                        <ul class="skill-list">
+                                            <li><span>English</span><em>Advanced</em></li>
+                                            <li><span>Italian</span><em>Elementary</em></li>
+                                            <li><span>Persian</span><em>Native</em></li>
+                                            <li><span>Turkish</span><em>Advanced</em></li>
+                                            <li><span>Azerbaijani</span><em>Native</em></li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group"><strong>Adobe</strong>
+                                        <ul class="skill-list" data-bars>
+                                            <li data-v="9"><span>Photoshop</span></li>
+                                            <li data-v="9"><span>InDesign</span></li>
+                                            <li data-v="9"><span>Illustrator</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group"><strong>Microsoft Office</strong>
+                                        <ul class="skill-list" data-bars>
+                                            <li data-v="7"><span>Excel</span></li>
+                                            <li data-v="9"><span>PowerPoint</span></li>
+                                            <li data-v="9"><span>Word</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group"><strong>Programming</strong>
+                                        <ul class="skill-list" data-bars>
+                                            <li data-v="3"><span>Python</span></li>
+                                            <li data-v="6"><span>HTML</span></li>
+                                            <li data-v="6"><span>CSS</span></li>
+                                            <li data-v="3"><span>JavaScript</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group"><strong>Software</strong>
+                                        <ul class="skill-list" data-bars>
+                                            <li data-v="8"><span>Revit</span></li>
+                                            <li data-v="8"><span>Dynamo</span></li>
+                                            <li data-v="5"><span>Rhino</span></li>
+                                            <li data-v="6"><span>Grasshopper</span></li>
+                                            <li data-v="8"><span>3ds Max</span></li>
+                                            <li data-v="5"><span>Edificius</span></li>
+                                            <li data-v="9"><span>AutoCAD</span></li>
+                                            <li data-v="7"><span>QGIS</span></li>
+                                            <li data-v="9"><span>Camtasia</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="skill-group"><strong>Rendering</strong>
+                                        <ul class="skill-list" data-bars>
+                                            <li data-v="5"><span>Lumion</span></li>
+                                            <li data-v="7"><span>V-Ray</span></li>
+                                            <li data-v="8"><span>Enscape</span></li>
+                                            <li data-v="6"><span>Unreal Engine</span></li>
+                                            <li data-v="5"><span>Unity</span></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--end of Accordion-->
                 </div>
+            </div>
 
-                <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12" id="cards">
-                    <!-- Cards Container -->
-                    <div class="container">
-                        <div class="row row-cols-1 row-cols-md-3 row-cols-lg-3 g-3 m-3">
+            <!-- Projects -->
+            <div class="col-lg-8" id="work">
+                <div class="work-wrap">
+                    <h2 class="section-title">Projects</h2>
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-3 g-3">
 
-                            <!-- Jammming React App -->
-                            <div class="col">
-                                <div class="card h-100 bg-black text-white">
-                                    <img src="./media/jammming/jammming-cover.jpg" class="card-img-top" alt="Jammming React App">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Jammming</h5>
-                                        <p class="card-text">
-                                            Year: 2026 <br>
-                                            Type: Web Development Project <br>
-                                            Tech: React + Spotify API
-                                        </p>
-                                        <a href="./jammming/" class="btn btn-outline-light stretched-link">Open App</a>
-                                    </div>
+                        <div class="col reveal">
+                            <article class="card project-card h-100">
+                                <div class="card-media"><img src="./media/jammming/jammming-cover.jpg" class="card-img-top" alt="Jammming React app" loading="lazy"></div>
+                                <div class="card-body">
+                                    <h3 class="card-title">Jammming</h3>
+                                    <p class="card-text">2026 · Web development<br>React + Spotify API</p>
+                                    <a href="./jammming/" class="btn-bw stretched-link">Open app</a>
                                 </div>
-                            </div>
-
-                            <!-- Other cards unchanged (Flappy Bird, Unreal, Ras Al Hadd, etc.) -->
-                            <!-- Copy your existing cards below here, no changes needed -->
-
+                            </article>
                         </div>
+
+                        <!-- Paste your other cards here. Copy the block above and change the image, title, text and link. -->
+
                     </div>
-                    <!-- end of Cards -->
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer>
-        <!-- Footer -->
-        <div class="formbar">
-            <div>
-                <div class="intro">
-                    <h2 style="font-family: cursive;">Faezeh Nikmandan</h2>
-                    <p>Currently open to job opportunities, junior architect, BIM specialist and freelance <br> <a href="mailto:nikmandanfaeze@yahoo.com">nikmandanfaeze@yahoo.com</a></p>
-                </div>
-            </div>
-            <form action="https://formspree.io/f/xblrbela" method="post">
-                <div class="form pb-3" id="form">
-                    <input required id="name" placeholder="Name" type="text" name="name">
-                    <input required placeholder="Surname" id="surname" type="text" name="surname">
-                    <input required id="email" placeholder="Please Enter Your Email Address" type="email" name="email">
-                    <textarea name="message" placeholder="How Can I Help You?" id="message" cols="30" rows="5"></textarea>
-                    <input type="submit" value="submit"/>
-                </div>
-            </form>
+<footer>
+    <div class="formbar">
+        <div class="intro">
+            <h2>Let's work together</h2>
+            <p>Open to junior architect, BIM specialist and freelance work.</p>
+            <a class="mail" href="mailto:nikmandanfaeze@yahoo.com">nikmandanfaeze@yahoo.com</a>
         </div>
-        <div id="endfooter">
-            <div class="d-flex flex-column row-gap-0 bg-black text-center justify-content-center">
-                <p class="text-white">Torino, Italy</p>
-                <div class="d-flex text-center justify-content-center gap-3">
-                    <a href="http://www.linkedin.com/in/faezeh-nikmandan-b167b0238" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/faeze.nikmandan/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://wa.me/393203822724" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>
+        <form action="https://formspree.io/f/xblrbela" method="post" id="form">
+            <div class="row g-3">
+                <div class="col-sm-6"><label for="name">Name</label><input required id="name" type="text" name="name" autocomplete="given-name"></div>
+                <div class="col-sm-6"><label for="surname">Surname</label><input required id="surname" type="text" name="surname" autocomplete="family-name"></div>
+                <div class="col-12"><label for="email">Email</label><input required id="email" type="email" name="email" autocomplete="email" inputmode="email"></div>
+                <div class="col-12"><label for="message">How can I help?</label><textarea name="message" id="message" rows="5"></textarea></div>
+                <div class="col-12"><button type="submit" class="btn-bw btn-bw-solid">Send message</button></div>
             </div>
+        </form>
+    </div>
+    <div id="endfooter">
+        <p>Torino, Italy</p>
+        <div class="social">
+            <a href="http://www.linkedin.com/in/faezeh-nikmandan-b167b0238" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/faeze.nikmandan/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/393203822724" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
-        <!-- end of Footer -->
-    </footer>
+    </div>
+</footer>
 
-    <!-- Scripts at bottom -->
-    <script src="./scripts-min/jquery-3.7.1.slim.js"></script>
-    <script src="./scripts-min/popper.min.js"></script>
-    <script src="./scripts-min/bootstrap.min.js"></script>
-    <script src="./app.js"></script>
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<script src="./scripts-min/jquery-3.7.1.slim.js"></script>
+<script src="./scripts-min/popper.min.js"></script>
+<script src="./scripts-min/bootstrap.min.js"></script>
+<script src="./app.js"></script>
 </body>
 </html>
