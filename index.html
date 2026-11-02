@@ -70,50 +70,19 @@
         <div class="container-fluid">
             <div class="row g-0">
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 bg-black" id="cv">
-                    <!--Accordion-->
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Education</button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <strong>Master of Sciences in Architecture for sustainability 2021-2024: </strong> Politecnico di Torino , Italy <hr><strong>Bachelor in Architecture Engineering 2015-2019: </strong>Seraj University , Tabriz ,Iran
-                                </div>
-                            </div>
+                    <!--Tabs-->
+                    <div class="tabs" id="cvTabs">
+                        <div class="tablist" role="tablist" aria-label="CV sections">
+                            <span class="pill" aria-hidden="true"></span>
+                            <button type="button" role="tab" id="tab1" aria-controls="pn1" aria-selected="true">Education</button>
+                            <button type="button" role="tab" id="tab2" aria-controls="pn2" aria-selected="false" tabindex="-1">Work Experiences</button>
+                            <button type="button" role="tab" id="tab3" aria-controls="pn3" aria-selected="false" tabindex="-1">Skills</button>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Work Experiences</button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <strong>Tangram studio! (Alice e Giorgio Giani architetti)</strong> Turin, Italy , On-site ,Part-time <br> Junior Architect : Nov 2024 - Sep 2025 <hr>
-                                    <strong>GAS Architettura!</strong> Turin, Italy , On-site ,Part-time <br> Junior Architect : Aug 2023 - Mar 2024 <br> Curriculum Internship : Jun 2023 - Aug 2023 <hr>
-                                    <strong>XForex!</strong> Tabriz, Iran , On-site, Full-time <br> Motion Graphic Designer : Jan 2020 - Sep 2021 <hr>
-                                    <strong>Scale Carpentry!</strong> Tabriz, Iran , Hybrid , Full-time <br>Interior Designer : 2020 - 2021 <hr>
-                                    <strong>Baharan Institution!</strong> Tabriz, Iran ,On-site ,Part-time <br> English Teacher : Apr 2017 - Sep 2017
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Skills</button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div class="skills d-flex flex-wrap justify-content-start">
-                                        <div class="language border-top m-1"><strong>Language</strong><hr> English : Advanced <br>Italian : Elementary <br> Persian :Native <br> Turkish: Advanced <br> Azerbaijan : Native</div>
-                                        <div class="Adobe border-top m-1"><strong>Adobe</strong><hr> Photoshop :9/10 <br> InDesign : 9/10 <br> Illustrator : 9/10</div>
-                                        <div class="Microsoft border-top m-1"><strong>Microsoft Office</strong><hr> Excel :7/10 <br> PowerPoint : 9/10 <br> Word:9/10</div>
-                                        <div class="programming border-top m-1"><strong>Programming Language</strong><hr> Python : 3/10 <br> Html : 6/10 <br> css : 6/10 <br> JavaScript : 3/10</div>
-                                        <div class="software border-top m-1"><strong>Software Proficiency</strong><hr> Revit : 8/10 <br> Dynamo: 8/10 <br> Rhino : 5/10 <br> Grasshopper: 6/10 <br> 3D Max : 8/10 <br> Edificius : 5/10 <br> AutoCad : 9/10 <br> QGis : 7/10 <br> Camtasia : 9/10 <br> Rendering<br> Lumion : 5/10 <br> V-Ray : 7/10 <br> Enscape : 8/10 <br> Unreal Engine 6/10 <br> Unity 5/10</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <section class="tabpanel active" id="pn1" role="tabpanel" aria-labelledby="tab1"><ol class="tl"><li><h4>Master of Sciences in Architecture for sustainability 2021-2024</h4><p class="meta">Politecnico di Torino, Italy</p></li><li><h4>Bachelor in Architecture Engineering 2015-2019</h4><p class="meta">Seraj University, Tabriz, Iran</p></li></ol></section>
+                        <section class="tabpanel" id="pn2" role="tabpanel" aria-labelledby="tab2" hidden><ol class="tl"><li><h4>2MIX studio</h4><p class="meta">Turin, Italy, On-site, Part-time</p><p>Junior Architect : Jan 2026 - Present</p></li><li><h4>Tangram studio (Alice e Giorgio Giani architetti)</h4><p class="meta">Turin, Italy, On-site, Part-time</p><p>Junior Architect : Nov 2024 - Sep 2025</p></li><li><h4>GAS Architettura</h4><p class="meta">Turin, Italy, On-site, Part-time</p><p>Junior Architect : Aug 2023 - Mar 2024</p><p>Curriculum Internship : Jun 2023 - Aug 2023</p></li><li><h4>XForex</h4><p class="meta">Tabriz, Iran, On-site, Full-time</p><p>Motion Graphic Designer : Jan 2020 - Sep 2021</p></li><li><h4>Scale Carpentry</h4><p class="meta">Tabriz, Iran, Hybrid, Full-time</p><p>Interior Designer : 2020 - 2021</p></li><li><h4>Baharan Institution</h4><p class="meta">Tabriz, Iran, On-site, Part-time</p><p>English Teacher : Apr 2017 - Sep 2017</p></li></ol></section>
+                        <section class="tabpanel" id="pn3" role="tabpanel" aria-labelledby="tab3" hidden><div class="sk"><h4>Language</h4><ul class="lang"><li><span>English</span><em>Advanced</em></li><li><span>Italian</span><em>Elementary</em></li><li><span>Persian</span><em>Native</em></li><li><span>Turkish</span><em>Advanced</em></li><li><span>Azerbaijan</span><em>Native</em></li></ul></div><div class="sk"><h4>Adobe</h4><ul class="bars"><li style="--v:9" title="9/10"><span>Photoshop</span><b><i></i></b></li><li style="--v:9" title="9/10"><span>InDesign</span><b><i></i></b></li><li style="--v:9" title="9/10"><span>Illustrator</span><b><i></i></b></li></ul></div><div class="sk"><h4>Microsoft Office</h4><ul class="bars"><li style="--v:7" title="7/10"><span>Excel</span><b><i></i></b></li><li style="--v:9" title="9/10"><span>PowerPoint</span><b><i></i></b></li><li style="--v:9" title="9/10"><span>Word</span><b><i></i></b></li></ul></div><div class="sk"><h4>Programming Language</h4><ul class="bars"><li style="--v:3" title="3/10"><span>Python</span><b><i></i></b></li><li style="--v:6" title="6/10"><span>HTML</span><b><i></i></b></li><li style="--v:6" title="6/10"><span>CSS</span><b><i></i></b></li><li style="--v:3" title="3/10"><span>JavaScript</span><b><i></i></b></li></ul></div><div class="sk"><h4>Software Proficiency</h4><ul class="bars"><li style="--v:8" title="8/10"><span>Revit</span><b><i></i></b></li><li style="--v:8" title="8/10"><span>Dynamo</span><b><i></i></b></li><li style="--v:5" title="5/10"><span>Rhino</span><b><i></i></b></li><li style="--v:6" title="6/10"><span>Grasshopper</span><b><i></i></b></li><li style="--v:8" title="8/10"><span>3D Max</span><b><i></i></b></li><li style="--v:5" title="5/10"><span>Edificius</span><b><i></i></b></li><li style="--v:9" title="9/10"><span>AutoCad</span><b><i></i></b></li><li style="--v:7" title="7/10"><span>QGis</span><b><i></i></b></li><li style="--v:9" title="9/10"><span>Camtasia</span><b><i></i></b></li></ul></div><div class="sk"><h4>Rendering</h4><ul class="bars"><li style="--v:5" title="5/10"><span>Lumion</span><b><i></i></b></li><li style="--v:7" title="7/10"><span>V-Ray</span><b><i></i></b></li><li style="--v:8" title="8/10"><span>Enscape</span><b><i></i></b></li><li style="--v:6" title="6/10"><span>Unreal Engine</span><b><i></i></b></li><li style="--v:5" title="5/10"><span>Unity</span><b><i></i></b></li></ul></div></section>
                     </div>
-                    <!--end of Accordion-->
+                    <!--end of Tabs-->
                 </div>
 
                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12" id="cards">

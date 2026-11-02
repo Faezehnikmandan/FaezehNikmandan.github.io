@@ -150,3 +150,58 @@ html.neg #neg{opacity:1}
 .main-container #paragraph h3{font-size:clamp(1.3rem,2.4vw,1.9rem);margin-bottom:.4rem!important}
 .main-container #paragraph p{font-size:clamp(.85rem,1.1vw,.95rem);line-height:1.5;columns:2 24rem;column-gap:2rem}
 @media(max-width:767px){.main-container #pic img{width:72px!important}}
+
+/* ===== smaller everything ===== */
+html{font-size:15px}
+.main-container .navbar-brand{font-size:1.25rem!important}
+.main-container .nav-link{font-size:.95rem!important;padding:.55rem .5rem}
+.main-container .navbar .form-control,.main-container .btn-outline-light{min-height:38px;font-size:.9rem}
+.main-container .btn-outline-light{padding:.3rem 1.1rem}
+@media(max-width:991px){.main-container .nav-link{font-size:1.15rem!important}}
+@media(pointer:coarse){.main-container .btn-outline-light,.main-container .navbar .form-control{min-height:44px}}
+.marquee{padding:.55rem 0!important;font-size:clamp(.95rem,2vw,1.2rem)!important}
+.main-container #cards .row{padding:clamp(.8rem,2vw,1.5rem)}
+.main-container .card-img-top,.main-container .carousel-item img{aspect-ratio:16/10}
+.main-container .card-body{padding:.8rem 1rem 1rem}
+.main-container .card-title{font-size:1.1rem}
+.main-container .card-text{font-size:.85rem;margin-bottom:.7rem}
+@media(min-width:1200px){.main-container #cards .row>.col{width:33.333%;flex-basis:33.333%}}
+@media(min-width:1700px){.main-container #cards .row>.col{width:25%;flex-basis:25%}}
+.main-container .formbar{padding:clamp(1.5rem,4vw,3rem) clamp(1rem,4vw,3rem);gap:1.5rem}
+.main-container .intro h2{font-size:clamp(1.6rem,3.5vw,2.4rem)}
+.main-container .form input:not([type=submit]),.main-container .form textarea{min-height:42px}
+.main-container .form input[type=submit]{min-height:42px}
+.main-container #endfooter a{width:40px;height:40px;font-size:1.1rem}
+#toTop,#inv{width:42px;height:42px;font-size:1.1rem}
+
+/* clickable cards */
+.main-container .card{cursor:pointer}
+
+/* ===== tabs + timeline + bars (replaces accordion) ===== */
+.main-container #cv{padding:1rem}
+@media(min-width:992px){.main-container #cv{position:sticky;top:60px;align-self:flex-start;max-height:calc(100vh - 60px);overflow:auto}}
+.tablist{position:relative;display:flex;gap:2px;padding:3px;border:1px solid #3a3a3a;border-radius:99px;margin-bottom:1rem}
+.tablist button{position:relative;z-index:1;flex:1;border:0;background:none;color:#fff;font:500 .8rem var(--body);padding:.5rem .3rem;border-radius:99px;min-height:38px;transition:color .3s}
+.tablist button[aria-selected=true]{color:#000}
+.tablist .pill{position:absolute;top:3px;bottom:3px;left:0;background:#fff;border-radius:99px;transition:transform .4s cubic-bezier(.2,.8,.2,1),width .4s}
+.tabpanel{animation:fadeUp .5s cubic-bezier(.2,.8,.2,1)}
+.tabpanel[hidden]{display:none}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}}
+.tl{list-style:none;margin:0;padding:0 0 0 1.1rem;border-left:1px solid #555}
+.tl li{position:relative;padding:0 0 1.1rem .4rem}
+.tl li::before{content:"";position:absolute;left:calc(-1.1rem - 4px);top:.4rem;width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px #000}
+.tl li:first-child::before{animation:pulse 1.8s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 3px #000,0 0 0 7px rgba(255,255,255,.3)}}
+.tl h4{font:800 .95rem var(--display);margin:0}
+.tl p{margin:.1rem 0 0;font-size:.85rem;color:#d0d0d0}
+.tl .meta{color:#8a8a8a;font-size:.78rem}
+.sk{margin-bottom:1.1rem}
+.sk h4{font:800 .8rem var(--display);text-transform:uppercase;letter-spacing:.08em;color:#9a9a9a;margin:0 0 .4rem}
+.bars,.lang{list-style:none;margin:0;padding:0}
+.bars li{display:grid;grid-template-columns:7.5rem 1fr;align-items:center;gap:.6rem;padding:.22rem 0;font-size:.85rem}
+.bars b{display:block;height:6px;background:#222;border-radius:9px;overflow:hidden}
+.bars i{display:block;height:100%;width:0;background:#fff;border-radius:9px;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.tabpanel.active .bars i{width:calc(var(--v)*10%)}
+.bars li:hover i{background:repeating-linear-gradient(90deg,#fff 0 6px,#888 6px 9px)}
+.lang li{display:flex;justify-content:space-between;padding:.22rem 0;font-size:.85rem;border-bottom:1px solid #222}
+.lang em{font-style:normal;color:#8a8a8a}

@@ -78,7 +78,7 @@ const start = () => {
   // Reveal with stagger
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
   $$('#cards .row > .col').forEach((el, i) => el.style.transitionDelay = (i % 3) * 90 + 'ms');
-  $$('#cards .row > .col, .accordion-item, .formbar').forEach(el => { el.classList.add('reveal'); io.observe(el); });
+  $$('#cards .row > .col, #cvTabs, .formbar').forEach(el => { el.classList.add('reveal'); io.observe(el); });
 
   // Cards: scramble title, haptics, 3D tilt with glare (mouse)
   $$('.card').forEach(c => {
@@ -96,13 +96,29 @@ const start = () => {
     }
   });
 
+  // Tabs (replaces accordion)
+  const tabs = $$('#cvTabs [role=tab]'), pill = $('#cvTabs .pill');
+  const place = () => { const t = tabs.find(b => b.getAttribute('aria-selected') === 'true'); if (t && pill) { pill.style.width = t.offsetWidth + 'px'; pill.style.transform = `translateX(${t.offsetLeft}px)`; } };
+  const pick = t => { tabs.forEach(b => { const on = b === t; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1;
+      const p = $('#' + b.getAttribute('aria-controls')); p.hidden = !on; p.classList.toggle('active', on); }); place(); buzz(); };
+  tabs.forEach((t, i) => { t.addEventListener('click', () => pick(t));
+    t.addEventListener('keydown', e => { const k = { ArrowRight: 1, ArrowLeft: -1 }[e.key]; if (k) { const n = tabs[(i + k + tabs.length) % tabs.length]; n.focus(); pick(n); } }); });
+  place(); addEventListener('resize', place); document.fonts && document.fonts.ready.then(place);
+
+  // Whole card is clickable (not only the button)
+  $$('.card').forEach(c => c.addEventListener('click', e => {
+    if (e.target.closest('a,button,.carousel-control-prev,.carousel-control-next')) return;
+    const a = $('a.stretched-link', c); if (!a) return;
+    if (e.metaKey || e.ctrlKey || a.target === '_blank') window.open(a.href, '_blank', 'noopener'); else location.href = a.href;
+  }));
+
   // Desktop only: blend-mode cursor ring and magnetic buttons
   if (fine && !reduce) {
     const ring = make('div', { id: 'ring' }); let tx = -100, ty = -100, rx = -100, ry = -100;
     addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; });
     (function f() { rx += (tx - rx) * .18; ry += (ty - ry) * .18; ring.style.transform = `translate(${rx}px,${ry}px)`; requestAnimationFrame(f); })();
     document.addEventListener('pointerover', e => ring.classList.toggle('big', !!e.target.closest('a,button,.card,input,textarea')));
-    $$('.btn, #toTop, #inv, #endfooter a').forEach(b => {
+    $$('.btn:not(.card .btn), #toTop, #inv, #endfooter a').forEach(b => {
       b.addEventListener('pointermove', e => { const r = b.getBoundingClientRect(); b.style.translate = `${(e.clientX - r.left - r.width / 2) * .3}px ${(e.clientY - r.top - r.height / 2) * .3}px`; });
       b.addEventListener('pointerleave', () => b.style.translate = '');
     });
