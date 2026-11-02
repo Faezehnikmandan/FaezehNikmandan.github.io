@@ -40,6 +40,7 @@
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   }), { threshold: .15 });
+  document.querySelectorAll('#work .row > .col').forEach(el => el.classList.add('reveal'));
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   // Skill bar values
