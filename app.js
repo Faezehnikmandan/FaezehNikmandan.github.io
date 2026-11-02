@@ -18,19 +18,7 @@ const start = () => {
     }, 30);
   };
 
-  // Loader with counter, once per visit
-  const loader = $('#loader'), ldn = $('#ldn'), h3 = $('#paragraph h3');
-  const intro = () => { loader.classList.add('done'); setTimeout(() => h3 && scramble(h3), 350); };
-  let seen = false; try { seen = sessionStorage.getItem('seen'); sessionStorage.setItem('seen', 1); } catch (e) {}
-  if (seen || reduce) { loader.style.display = 'none'; h3 && scramble(h3); }
-  else {
-    const t0 = performance.now();
-    (function tick(t) {
-      const p = Math.min(1, (t - t0) / 1100);
-      ldn.textContent = Math.round(p * 100);
-      p < 1 ? requestAnimationFrame(tick) : setTimeout(intro, 150);
-    })(t0);
-  }
+  const h3 = $('#paragraph h3');
 
   // Scroll progress and back-to-top
   const bar = make('div', { id: 'scrollbar' });
@@ -144,5 +132,40 @@ const start = () => {
     form.addEventListener('submit', e => { e.preventDefault(); filter(); $('#cards').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); closeNav(); });
   }
   $$('.nav-link', nav).forEach(a => a.addEventListener('click', closeNav));
+
+  // ===== Languages: EN / IT / DE / FR =====
+  const R = [["CV", "", "Lebenslauf", ""], ["Get in Touch", "Contattami", "Kontakt", "Me contacter"], ["Search", "Cerca", "Suchen", "Rechercher"], ["Welcome to my webpage!", "Benvenuti sul mio sito!", "Willkommen auf meiner Webseite!", "Bienvenue sur mon site !"], ["Hi, I'm Faezeh Nikmandan, a passionate architect specializing in sustainable design. With a Master's degree in Architecture for Sustainability from Politecnico di Torino, I've cultivated a deep commitment to creating spaces that harmonize with the environment. Beyond formal education, my curiosity and drive have led me to independently learn digital tools like HTML, CSS, and JavaScript, which I used to build this website from scratch.", "Ciao, sono Faezeh Nikmandan, un'architetta appassionata di progettazione sostenibile. Con una laurea magistrale in Architettura per la Sostenibilità al Politecnico di Torino, ho sviluppato un forte impegno nel creare spazi che si armonizzano con l'ambiente. Oltre alla formazione, curiosità e determinazione mi hanno portata a imparare da autodidatta strumenti digitali come HTML, CSS e JavaScript, con cui ho costruito questo sito da zero.", "Hallo, ich bin Faezeh Nikmandan, eine leidenschaftliche Architektin mit Schwerpunkt auf nachhaltigem Entwerfen. Mit einem Master in Architektur für Nachhaltigkeit vom Politecnico di Torino habe ich mich dem Gestalten von Räumen verschrieben, die im Einklang mit der Umwelt stehen. Über die Ausbildung hinaus haben mich Neugier und Antrieb dazu gebracht, mir digitale Werkzeuge wie HTML, CSS und JavaScript selbst beizubringen, mit denen ich diese Webseite von Grund auf gebaut habe.", "Bonjour, je suis Faezeh Nikmandan, une architecte passionnée par la conception durable. Titulaire d'un master en Architecture pour la durabilité du Politecnico di Torino, je m'engage à créer des espaces en harmonie avec l'environnement. Au-delà de ma formation, ma curiosité et ma motivation m'ont conduite à apprendre seule des outils numériques comme HTML, CSS et JavaScript, avec lesquels j'ai construit ce site de A à Z."], ["My journey goes beyond architecture—I'm constantly expanding my skill set, from mastering advanced design software to diving into interior design and digital technologies like Dynamo in Revit for LEED compliance. This portfolio reflects my dedication to innovation, sustainability, and continuous learning. I believe in breaking boundaries and embracing versatility in everything I do.", "Il mio percorso va oltre l'architettura: amplio costantemente le mie competenze, dall'uso avanzato di software di progettazione all'interior design, fino a tecnologie digitali come Dynamo in Revit per la conformità LEED. Questo portfolio riflette il mio impegno per l'innovazione, la sostenibilità e l'apprendimento continuo. Credo nel superare i confini e nell'abbracciare la versatilità in tutto ciò che faccio.", "Mein Weg geht über die Architektur hinaus: Ich erweitere ständig meine Fähigkeiten, von fortgeschrittener Entwurfssoftware über Innenarchitektur bis zu digitalen Technologien wie Dynamo in Revit für die LEED-Konformität. Dieses Portfolio spiegelt mein Engagement für Innovation, Nachhaltigkeit und lebenslanges Lernen wider. Ich glaube daran, Grenzen zu überwinden und Vielseitigkeit in allem zu leben, was ich tue.", "Mon parcours dépasse l'architecture : j'élargis sans cesse mes compétences, de la maîtrise de logiciels de conception avancés à l'architecture d'intérieur, jusqu'aux technologies numériques comme Dynamo dans Revit pour la conformité LEED. Ce portfolio reflète mon engagement envers l'innovation, la durabilité et l'apprentissage continu. Je crois qu'il faut repousser les limites et cultiver la polyvalence en tout ce que je fais."], ["Education", "Formazione", "Ausbildung", "Formation"], ["Work Experiences", "Esperienze lavorative", "Berufserfahrung", "Expériences professionnelles"], ["Skills", "Competenze", "Kenntnisse", "Compétences"], ["Master of Sciences in Architecture for sustainability 2021-2024", "Laurea Magistrale in Architettura per la Sostenibilità 2021-2024", "Master of Science in Architektur für Nachhaltigkeit 2021-2024", "Master en Architecture pour la durabilité 2021-2024"], ["Bachelor in Architecture Engineering 2015-2019", "Laurea in Ingegneria Edile-Architettura 2015-2019", "Bachelor in Architekturingenieurwesen 2015-2019", "Licence en ingénierie architecturale 2015-2019"], ["Italy", "Italia", "Italien", "Italie"], ["Turin", "Torino", "", ""], ["On-site", "In sede", "Vor Ort", "Sur site"], ["Part-time", "", "Teilzeit", "Temps partiel"], ["Full-time", "Tempo pieno", "Vollzeit", "Temps plein"], ["Hybrid", "Ibrido", "", "Hybride"], ["Junior Architect", "Architetto Junior", "Junior-Architekt", "Architecte junior"], ["Curriculum Internship", "Tirocinio curricolare", "Pflichtpraktikum", "Stage curriculaire"], ["Motion Graphic Designer", "", "", "Motion designer"], ["Interior Designer", "", "Innenarchitekt", "Architecte d'intérieur"], ["English Teacher", "Insegnante di inglese", "Englischlehrer", "Professeur d'anglais"], ["Present", "Oggi", "heute", "aujourd'hui"], ["Jan", "Gen", "", "janv."], ["Mar", "", "Mär", "mars"], ["Apr", "", "", "avr."], ["Jun", "Giu", "", "juin"], ["Aug", "Ago", "", "août"], ["Sep", "Set", "", "sept."], ["Language", "Lingue", "Sprachen", "Langues"], ["Programming Language", "Linguaggi di programmazione", "Programmiersprachen", "Langages de programmation"], ["Software Proficiency", "Competenze software", "Software-Kenntnisse", "Maîtrise des logiciels"], ["Rendering", "", "", "Rendu"], ["English", "Inglese", "Englisch", "Anglais"], ["Italian", "Italiano", "Italienisch", "Italien"], ["Persian", "Persiano", "Persisch", "Persan"], ["Turkish", "Turco", "Türkisch", "Turc"], ["Azerbaijan", "Azero", "Aserbaidschanisch", "Azéri"], ["Advanced", "Avanzato", "Fortgeschritten", "Avancé"], ["Elementary", "Elementare", "Grundkenntnisse", "Élémentaire"], ["Native", "Madrelingua", "Muttersprache", "Langue maternelle"], ["Year", "Anno", "Jahr", "Année"], ["Type", "Tipo", "Typ", ""], ["Location", "Luogo", "Ort", "Lieu"], ["Self Practice", "Esercizio personale", "Eigenübung", "Exercice personnel"], ["Professional Project", "Progetto professionale", "Berufliches Projekt", "Projet professionnel"], ["Master Thesis", "Tesi di laurea magistrale", "Masterarbeit", "Mémoire de master"], ["Master Group Project", "Progetto di gruppo (Magistrale)", "Master-Gruppenprojekt", "Projet de groupe (master)"], ["Bachelor Individual Project", "Progetto individuale (Triennale)", "Individuelles Bachelor-Projekt", "Projet individuel (licence)"], ["Somewhere in the world", "In qualche parte del mondo", "Irgendwo auf der Welt", "Quelque part dans le monde"], ["South Al Sharqiyah Governorate, Oman", "Governatorato di Al Sharqiyah Sud, Oman", "Gouvernement Süd-Scharqiyya, Oman", "Gouvernorat d'Al Sharqiyah du Sud, Oman"], ["Cape Town, South Africa", "Città del Capo, Sudafrica", "Kapstadt, Südafrika", "Le Cap, Afrique du Sud"], ["Ras Al Hadd Improvement Project", "Progetto di riqualificazione di Ras Al Hadd", "Verbesserungsprojekt Ras Al Hadd", "Projet d'amélioration de Ras Al Hadd"], ["Club Med Sansicario Alto and Borgo", "Club Med Sansicario Alto e Borgo", "Club Med Sansicario Alto und Borgo", "Club Med Sansicario Alto et Borgo"], ["BIM and LEED Integration for Water Conservation", "Integrazione BIM e LEED per il risparmio idrico", "BIM- und LEED-Integration zur Wassereinsparung", "Intégration BIM et LEED pour la conservation de l'eau"], ["Green Building Design", "Progettazione di Green Building", "Entwurf nachhaltiger Gebäude", "Conception de bâtiments écologiques"], ["Restoration and Integrated Conservation", "Restauro e conservazione integrata", "Restaurierung und integrierte Konservierung", "Restauration et conservation intégrée"], ["Advanced Parametric Design", "Progettazione parametrica avanzata", "Fortgeschrittenes parametrisches Entwerfen", "Conception paramétrique avancée"], ["Library Design", "Progetto di una biblioteca", "Bibliotheksentwurf", "Conception d'une bibliothèque"], ["Let's PLAY!", "Giochiamo!", "Los geht's!", "Jouons !"], ["Explore more!", "Scopri di più!", "Mehr entdecken!", "En savoir plus !"], ["Currently open to mentorship opportunities, junior architect , BIM specialist and freelance", "Attualmente disponibile per opportunità di mentorship, architetto junior, specialista BIM e freelance", "Derzeit offen für Mentoring-Möglichkeiten, Junior-Architekt, BIM-Spezialist und Freelance", "Actuellement ouverte aux opportunités de mentorat, architecte junior, spécialiste BIM et freelance"], ["Name", "Nome", "", "Nom"], ["Surname", "Cognome", "Nachname", "Nom de famille"], ["Please Enter Your Email Adress", "Inserisci il tuo indirizzo email", "Bitte gib deine E-Mail-Adresse ein", "Veuillez saisir votre adresse e-mail"], ["How Can I Help You?", "Come posso aiutarti?", "Wie kann ich dir helfen?", "Comment puis-je vous aider ?"], ["submit", "Invia", "Senden", "Envoyer"], ["No projects match your search.", "Nessun progetto corrisponde alla ricerca.", "Keine Projekte gefunden.", "Aucun projet ne correspond à votre recherche."]];
+  const D = { it: {}, de: {}, fr: {} };
+  ['it', 'de', 'fr'].forEach((l, i) => R.forEach(r => { if (r[i + 1]) D[l][r[0]] = r[i + 1]; }));
+  const RX = {};
+  const tr = (s, l) => {
+    const d = D[l];
+    RX[l] = RX[l] || new RegExp('(?<!\\w)(' + Object.keys(d).sort((a, b) => b.length - a.length).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')(?!\\w)', 'g');
+    return s.split(/<br\s*\/?>/i).map(p => p.trim().replace(RX[l], m => d[m])).join('<br>');
+  };
+  const SEL = '.nav-link,.navbar form button,#paragraph h3,#paragraph p,#cvTabs [role=tab],.tl h4,.tl p,.sk h4,.lang span,.lang em,.card-title,.card-text,.card .btn,.intro p,#noResults';
+  const apply = lang => {
+    $$(SEL).forEach(el => {
+      el._en = el._en || el.innerHTML;
+      el.innerHTML = lang === 'en' ? el._en : tr(el._en, lang);
+      if (el.dataset.t !== undefined) el.dataset.t = el.textContent;
+    });
+    $$('[placeholder]').forEach(el => { el._ph = el._ph || el.placeholder; el.placeholder = lang === 'en' ? el._ph : tr(el._ph, lang); });
+    $$('input[type=submit]').forEach(el => { el._v = el._v || el.value; el.value = lang === 'en' ? el._v : tr(el._v, lang); });
+    root.lang = lang;
+    $$('.lang-switch button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
+    if (typeof place === 'function') place();
+  };
+  let lang = 'en';
+  try { lang = localStorage.getItem('lang') || ''; } catch (e) {}
+  if (!D[lang] && lang !== 'en') lang = (navigator.language || 'en').slice(0, 2);
+  if (!D[lang]) lang = 'en';
+  apply(lang);
+  if (h3) { h3.dataset.t = h3.textContent; scramble(h3); }
+  $$('.lang-switch button').forEach(b => b.addEventListener('click', () => {
+    lang = b.dataset.lang; apply(lang); buzz();
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+    if (h3) scramble(h3, h3.textContent);
+  }));
 };
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();

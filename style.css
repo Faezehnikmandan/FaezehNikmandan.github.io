@@ -115,9 +115,6 @@ body{font-family:var(--body);line-height:1.6;overflow-x:hidden;-webkit-tap-highl
 }
 
 /* ===== surprise layer ===== */
-#loader{position:fixed;inset:0;z-index:5000;background:#000;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;padding:1.2rem 1.5rem;font:800 clamp(4rem,24vw,12rem)/.85 var(--display);letter-spacing:-.06em;transition:transform .85s cubic-bezier(.77,0,.18,1);animation:ldfail .01s 4s forwards}
-#loader.done{transform:translateY(-100%)}
-@keyframes ldfail{to{transform:translateY(-100%)}}
 #ring{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid #fff;border-radius:50%;pointer-events:none;z-index:4500;mix-blend-mode:difference;transition:width .25s,height .25s,margin .25s,background .25s}
 #ring.big{width:76px;height:76px;margin:-38px 0 0 -38px;background:#fff}
 #neg{position:fixed;inset:0;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:3000;opacity:0;transition:opacity .6s}
@@ -205,3 +202,9 @@ html{font-size:15px}
 .bars li:hover i{background:repeating-linear-gradient(90deg,#fff 0 6px,#888 6px 9px)}
 .lang li{display:flex;justify-content:space-between;padding:.22rem 0;font-size:.85rem;border-bottom:1px solid #222}
 .lang em{font-style:normal;color:#8a8a8a}
+
+/* language switcher */
+.lang-switch{display:flex;gap:2px;padding:2px;border:1px solid #444;border-radius:99px;width:max-content;margin:.4rem 0}
+.lang-switch button{border:0;background:none;color:#fff;font:500 .72rem var(--body);padding:.3rem .6rem;border-radius:99px;min-height:30px;transition:background .3s,color .3s}
+.lang-switch button[aria-pressed=true]{background:#fff;color:#000}
+@media(pointer:coarse){.lang-switch button{min-height:38px;padding:.3rem .8rem}}

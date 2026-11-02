@@ -22,7 +22,6 @@
     <script src="./app.js" defer></script>
 </head>
 <body>
-<div id="loader" aria-hidden="true"><span>FN</span><span id="ldn">0</span></div>
 <div class="main-container">
     <header>
         <!-- Navbar content -->
@@ -33,11 +32,14 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link fs-5" target="_blank" rel="noopener" href="/media/CV.pdf">CV</a></li>
                         <li class="nav-item"><a class="nav-link fs-5" target="_blank" rel="noopener" href="/media/Faezeh Nikmandan-Portfolio.pdf">Portfolio</a></li>
                         <li class="nav-item"><a class="nav-link fs-5" href="#form">Get in Touch</a></li>
                     </ul>
+                    <div class="lang-switch ms-lg-auto me-lg-3" role="group" aria-label="Language">
+                        <button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="it" aria-pressed="false">IT</button><button type="button" data-lang="de" aria-pressed="false">DE</button><button type="button" data-lang="fr" aria-pressed="false">FR</button>
+                    </div>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-light" type="submit">Search</button>
