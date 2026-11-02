@@ -21,7 +21,6 @@ body{font-family:var(--body);line-height:1.6;overflow-x:hidden;-webkit-tap-highl
 #noResults{width:100%;padding:2rem 0;color:var(--mute)}
 
 /* navbar */
-.main-container header{position:sticky;top:0;z-index:1500;padding-top:env(safe-area-inset-top,0);background:rgba(0,0,0,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .main-container .navbar{--bs-navbar-color:#fff;background:transparent!important}
 .main-container .navbar-brand{font-family:var(--display);font-weight:800!important;letter-spacing:-.03em;color:#fff}
 .main-container .navbar-toggler{border:1px solid #fff;min-width:46px;min-height:46px}
@@ -139,3 +138,15 @@ html.neg #neg{opacity:1}
 @media(hover:hover){.main-container .card:hover{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-6px)}}
 .main-container #paragraph h3{min-height:1.1em}
 #clock{color:#fff;font-variant-numeric:tabular-nums}
+
+/* FIX: only the navbar is sticky (before, the whole header incl. the intro stayed pinned) */
+.main-container header{display:contents}
+.main-container header>nav.navbar{position:sticky;top:0;z-index:1500;padding-top:env(safe-area-inset-top,0);background:rgba(0,0,0,.85)!important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+
+/* slim intro band */
+.main-container #media{padding:.9rem clamp(1rem,3vw,2rem);gap:1.25rem;min-height:0}
+.main-container #pic img{width:clamp(72px,8vw,110px)!important}
+.main-container #paragraph{max-width:none}
+.main-container #paragraph h3{font-size:clamp(1.3rem,2.4vw,1.9rem);margin-bottom:.4rem!important}
+.main-container #paragraph p{font-size:clamp(.85rem,1.1vw,.95rem);line-height:1.5;columns:2 24rem;column-gap:2rem}
+@media(max-width:767px){.main-container #pic img{width:72px!important}}
