@@ -114,3 +114,28 @@ body{font-family:var(--body);line-height:1.6;overflow-x:hidden;-webkit-tap-highl
   .main-container #paragraph h3{flex:1 1 0;margin:0!important}
   .main-container #paragraph p{flex:0 0 100%}
 }
+
+/* ===== surprise layer ===== */
+#loader{position:fixed;inset:0;z-index:5000;background:#000;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;padding:1.2rem 1.5rem;font:800 clamp(4rem,24vw,12rem)/.85 var(--display);letter-spacing:-.06em;transition:transform .85s cubic-bezier(.77,0,.18,1);animation:ldfail .01s 4s forwards}
+#loader.done{transform:translateY(-100%)}
+@keyframes ldfail{to{transform:translateY(-100%)}}
+#ring{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid #fff;border-radius:50%;pointer-events:none;z-index:4500;mix-blend-mode:difference;transition:width .25s,height .25s,margin .25s,background .25s}
+#ring.big{width:76px;height:76px;margin:-38px 0 0 -38px;background:#fff}
+#neg{position:fixed;inset:0;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:3000;opacity:0;transition:opacity .6s}
+html.neg #neg{opacity:1}
+#inv{position:fixed;left:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0));width:48px;height:48px;border-radius:50%;border:1px solid #fff;background:#000;color:#fff;font-size:1.3rem;z-index:1400;transition:transform .3s}
+#inv:hover{transform:rotate(180deg)}
+.main-container .marquee{overflow:hidden;white-space:nowrap;border-block:1px solid var(--line);padding:.9rem 0;font:500 clamp(1.1rem,3vw,1.7rem) var(--display)}
+.mtrack{display:inline-flex;will-change:transform}
+.mgrp{display:inline-flex}
+.mgrp span{padding-right:2.5rem}
+.mgrp span::after{content:"/";margin-left:2.5rem;color:#777}
+.main-container #cards .row{counter-reset:p}
+.main-container #cards .row>.col{counter-increment:p}
+.main-container .card::after{content:counter(p,decimal-leading-zero);position:absolute;top:.7rem;left:.9rem;font:800 1rem var(--display);color:#fff;mix-blend-mode:difference;z-index:3;pointer-events:none}
+.main-container .card::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),#fff,transparent 55%);mix-blend-mode:difference}
+.main-container .card.tilt::before{opacity:.35}
+.main-container .card.tilt{transition:background .35s,color .35s,transform .12s linear}
+@media(hover:hover){.main-container .card:hover{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-6px)}}
+.main-container #paragraph h3{min-height:1.1em}
+#clock{color:#fff;font-variant-numeric:tabular-nums}
