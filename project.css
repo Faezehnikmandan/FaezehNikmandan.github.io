@@ -30,3 +30,11 @@ h1{font:800 clamp(2rem,6vw,3.6rem)/1 var(--d);letter-spacing:-.04em;margin:0}
 .lb .x{top:1rem;right:1rem}.lb .p{left:1rem;top:50%}.lb .n{right:1rem;top:50%}.lb .c{position:absolute;bottom:1rem;font-size:.85rem;color:#aaa}
 @media(max-width:600px){.lb .p,.lb .n{top:auto;bottom:.8rem}.lb .c{bottom:1.6rem}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* skeleton loading */
+.skel{background:linear-gradient(100deg,#111 30%,#262626 50%,#111 70%);background-size:200% 100%;animation:shim 1.4s linear infinite}
+@keyframes shim{to{background-position:-200% 0}}
+.hero.skel{aspect-ratio:16/9;max-height:72vh;cursor:default}
+.gallery figure.skel{pointer-events:none;cursor:default}
+.gallery img{opacity:0}.gallery img.ok{opacity:1}
+.gallery img{transition:opacity .6s,filter .5s,transform .8s cubic-bezier(.2,.8,.2,1)}

@@ -54,7 +54,7 @@ const P = {
     <p class="chips">${d.tag.map(t => `<span>${t}</span>`).join('')}${d.loc ? `<span>${d.loc}</span>` : ''}</p>
     <h1>${d.t}</h1><p class="sub">${d.s}</p>
   </section>
-  <figure class="hero" id="hero" hidden></figure>
+  <figure class="hero skel" id="hero"></figure>
   ${d.tx.length ? `<section class="text">${d.tx.map(p => `<p class="rv">${bold(p)}</p>`).join('')}</section>` : ''}
   <p class="count" id="count"></p>
   <section class="gallery" id="gal"></section>
@@ -66,13 +66,21 @@ const P = {
   // ---- find images 1..100 ----
   const base = './' + encodeURI(d.f), EX = ['jpg', 'jpeg', 'png', 'webp', 'avif', 'JPG', 'JPEG', 'PNG'];
   let pref = 0; const imgs = [];
+  // skeleton placeholders while images are being found
+  const gal = $('#gal');
+  [220, 300, 180, 260, 340, 200, 280, 240].forEach(h => { const s = document.createElement('figure'); s.className = 'skel'; s.style.height = h + 'px'; gal.append(s); });
+  $('#count').textContent = 'Loading images…';
   const ok = u => new Promise(r => { const m = new Image(); m.onload = () => r(true); m.onerror = () => r(false); m.src = u; });
   const find = async n => { for (let k = 0; k < EX.length; k++) { const e = (pref + k) % EX.length, u = `${base}/${n}.${EX[e]}`; if (await ok(u)) { pref = e; return u; } } return null; };
   const add = u => {
     const idx = imgs.push(u) - 1;
-    if (idx === 0) { const h = $('#hero'); h.hidden = false; h.innerHTML = `<img src="${u}" alt="${d.t}" decoding="async">`; h.onclick = () => open(0); }
-    else { const f = document.createElement('figure'); f.className = 'rv'; f.innerHTML = `<img src="${u}" alt="${d.t} ${idx + 1}" loading="lazy" decoding="async">`; f.onclick = () => open(idx); $('#gal').append(f); io.observe(f); }
-    $('#count').textContent = imgs.length + (imgs.length === 1 ? ' image' : ' images');
+    if (idx === 0) { const h = $('#hero'); h.classList.remove('skel'); h.innerHTML = `<img src="${u}" alt="${d.t}" decoding="async">`; h.onclick = () => open(0); }
+    else {
+      const f = document.createElement('figure'); f.className = 'rv'; f.innerHTML = `<img src="${u}" alt="${d.t} ${idx + 1}" decoding="async" onload="this.classList.add('ok')">`; f.onclick = () => open(idx);
+      const sk = gal.querySelectorAll('.skel');
+      if (sk.length) { gal.insertBefore(f, sk[0]); sk[sk.length - 1].remove(); } else gal.append(f);
+      io.observe(f);
+    }
   };
   const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && (e.target.classList.add('in'), io.unobserve(e.target))), { threshold: .08 });
   document.querySelectorAll('.rv').forEach(e => io.observe(e));
@@ -82,7 +90,9 @@ const P = {
       const got = r.filter(Boolean); got.forEach(add);
       if (!got.length) break;
     }
-    if (!imgs.length) $('#count').innerHTML = `No images yet. Add <b>1.jpg, 2.jpg, 3.jpg …</b> to <b>${d.f}</b>`;
+    gal.querySelectorAll('.skel').forEach(e => e.remove());
+    if (imgs.length) $('#count').textContent = imgs.length + (imgs.length === 1 ? ' image' : ' images');
+    else { $('#hero').hidden = true; $('#count').innerHTML = `No images yet. Add <b>1.jpg, 2.jpg, 3.jpg …</b> to <b>${d.f}</b>`; }
   })();
 
   // ---- lightbox ----
