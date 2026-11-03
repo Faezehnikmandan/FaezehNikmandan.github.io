@@ -115,8 +115,6 @@ body{font-family:var(--body);line-height:1.6;overflow-x:hidden;-webkit-tap-highl
 }
 
 /* ===== surprise layer ===== */
-#ring{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid #fff;border-radius:50%;pointer-events:none;z-index:4500;mix-blend-mode:difference;transition:width .25s,height .25s,margin .25s,background .25s}
-#ring.big{width:76px;height:76px;margin:-38px 0 0 -38px;background:#fff}
 #neg{position:fixed;inset:0;background:#fff;mix-blend-mode:difference;pointer-events:none;z-index:3000;opacity:0;transition:opacity .6s}
 html.neg #neg{opacity:1}
 #inv{position:fixed;left:1rem;bottom:calc(1rem + env(safe-area-inset-bottom,0));width:48px;height:48px;border-radius:50%;border:1px solid #fff;background:#000;color:#fff;font-size:1.3rem;z-index:1400;transition:transform .3s}
@@ -208,3 +206,20 @@ html{font-size:15px}
 .lang-switch button{border:0;background:none;color:#fff;font:500 .72rem var(--body);padding:.3rem .6rem;border-radius:99px;min-height:30px;transition:background .3s,color .3s}
 .lang-switch button[aria-pressed=true]{background:#fff;color:#000}
 @media(pointer:coarse){.lang-switch button{min-height:38px;padding:.3rem .8rem}}
+
+/* only the current job pulses (education is finished) */
+.tl li:first-child::before{animation:none}
+#pn2 .tl li:first-child::before{animation:pulse 1.8s infinite}
+
+/* portfolio: impossible to miss */
+.main-container .nav-link[href*="Portfolio"]{background:#fff;color:#000!important;border-radius:99px;padding:.4rem 1rem!important;margin-inline:.3rem;font-weight:500;transition:transform .3s,background .3s,color .3s}
+.main-container .nav-link[href*="Portfolio"]::after{display:none}
+.main-container .nav-link[href*="Portfolio"]:hover{background:#000;color:#fff!important;outline:1px solid #fff;transform:scale(1.05)}
+@media(max-width:991px){.main-container .nav-link[href*="Portfolio"]{display:inline-block;margin:.5rem 0}}
+.cta{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.main-container .cta .solid{background:#fff;color:#000;font-weight:500;animation:ring 2.8s infinite}
+.main-container .cta .solid::after{content:"\2197";margin-left:.5rem;transition:transform .3s}
+.main-container .cta .solid:hover{background:#000;color:#fff;animation:none}
+.main-container .cta .solid:hover::after{transform:translate(3px,-3px)}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(255,255,255,.5)}70%,100%{box-shadow:0 0 0 14px rgba(255,255,255,0)}}
+@media(max-width:767px){.main-container .cta{flex:0 0 100%}.main-container .cta .btn{flex:1}}
