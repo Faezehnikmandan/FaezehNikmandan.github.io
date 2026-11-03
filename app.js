@@ -6,18 +6,6 @@ const start = () => {
   const buzz = () => navigator.vibrate && navigator.vibrate(8);
   const make = (tag, props, parent = document.body) => parent.appendChild(Object.assign(document.createElement(tag), props));
 
-  // Text scramble (decode effect)
-  const GL = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ#%&/+*';
-  const scramble = (el, to = el.dataset.t || el.textContent) => {
-    el.dataset.t = to; el.setAttribute('aria-label', to);
-    if (reduce) { el.textContent = to; return; }
-    let f = 0; clearInterval(el._t);
-    el._t = setInterval(() => {
-      el.textContent = [...to].map((c, i) => c === ' ' || i < f / 2 ? c : GL[Math.random() * GL.length | 0]).join('');
-      if (++f > to.length * 2) { clearInterval(el._t); el.textContent = to; }
-    }, 30);
-  };
-
   const h3 = $('#paragraph h3');
 
   // Scroll progress and back-to-top
@@ -68,7 +56,7 @@ const start = () => {
   $$('#cards .row > .col').forEach((el, i) => el.style.transitionDelay = (i % 3) * 90 + 'ms');
   $$('#cards .row > .col, #cvTabs, .formbar').forEach(el => { el.classList.add('reveal'); io.observe(el); });
 
-  // Cards: scramble title, haptics, 3D tilt with glare (mouse)
+  // Cards: haptics, 3D tilt with glare (mouse)
   $$('.card').forEach(c => {
     c.addEventListener('pointerdown', buzz);
     if (fine) {
@@ -159,11 +147,9 @@ const start = () => {
   if (!D[lang] && lang !== 'en') lang = (navigator.language || 'en').slice(0, 2);
   if (!D[lang]) lang = 'en';
   apply(lang);
-  if (h3) { h3.dataset.t = h3.textContent; scramble(h3); }
   $$('.lang-switch button').forEach(b => b.addEventListener('click', () => {
     lang = b.dataset.lang; apply(lang); buzz();
     try { localStorage.setItem('lang', lang); } catch (e) {}
-    if (h3) scramble(h3, h3.textContent);
   }));
 };
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
