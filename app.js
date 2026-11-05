@@ -150,6 +150,7 @@ const start = () => {
     $$('[placeholder]').forEach(el => { el._ph = el._ph || el.placeholder; el.placeholder = lang === 'en' ? el._ph : tr(el._ph, lang); });
     $$('input[type=submit]').forEach(el => { el._v = el._v || el.value; el.value = lang === 'en' ? el._v : tr(el._v, lang); });
     root.lang = lang;
+    const cv = $('#cvLink'); if (cv) cv.href = '/media/CV(' + (lang === 'it' ? 'Italian' : 'English') + ').pdf';
     $$('.lang-switch button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
     if (typeof place === 'function') place();
   };
