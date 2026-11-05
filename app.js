@@ -6,6 +6,17 @@ const start = () => {
   const buzz = () => navigator.vibrate && navigator.vibrate(8);
   const make = (tag, props, parent = document.body) => parent.appendChild(Object.assign(document.createElement(tag), props));
 
+  // Never open on the contact form
+  const nav0 = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+  const reloaded = nav0 && nav0.type === 'reload';
+  if (location.hash === '#form') history.replaceState(null, '', location.pathname + location.search);
+  if (location.hash === '#form' || reloaded) {
+    history.scrollRestoration = 'manual'; scrollTo(0, 0);
+    addEventListener('load', () => scrollTo(0, 0));
+  }
+  // "Get in Touch" scrolls to the form without leaving #form in the address bar
+  $$('a[href="#form"]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); $('#form').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' }); }));
+
   const h3 = $('#paragraph h3');
 
   // Scroll progress and back-to-top
